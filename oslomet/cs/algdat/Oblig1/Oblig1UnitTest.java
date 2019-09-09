@@ -1,4 +1,6 @@
-package no.oslomet.cs.algdat.Oblig1;
+package cs.algdat.Oblig1;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,7 +32,9 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void delsortering() {
-        assertEquals(true, false, "Implementer delsortering og denne testen");
+        int[] a = {4,1,-7,2,-3};
+        //assertEquals(true, false, "Implementer delsortering og denne testen");
+        Oblig1.delsortering(a);
     }
 
     @org.junit.jupiter.api.Test

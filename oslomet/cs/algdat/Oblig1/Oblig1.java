@@ -1,4 +1,4 @@
-package no.oslomet.cs.algdat.Oblig1;
+package cs.algdat.Oblig1;
 
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 
@@ -10,6 +10,11 @@ import java.util.NoSuchElementException;
 
 public class Oblig1 {
     private Oblig1() {
+    }
+
+    //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
+    public static void main(String[] args){
+
     }
 
     //Edvard
@@ -37,7 +42,37 @@ public class Oblig1 {
     //Benjamin
     ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
-        throw new NotImplementedException();
+        if(a.length < 1) return;
+        int[] oddetall = new int[a.length];
+        int[] partall = {};
+        int min = a[0];
+        int min_index = 0;
+        // {4,1,-7,2,-3};
+
+
+        //Sorterer listen
+        for(int i = 0; i < a.length - 1; i++){
+            for(int j = i; j < a.length; j++){
+                if(a[j] < min){
+                    min = a[j];
+                    min_index = j;
+                }
+            }
+            int temp = a[i];
+            a[i] = min;
+            a[min_index] = temp;
+
+            min = a[i + 1];
+            min_index = i + 1;
+
+            System.out.println(Arrays.toString(a));
+        }
+
+        for(int i = 0; i < a.length; i++){
+            if(a[i]%2==0){
+            }
+        }
+
     }
 
     //Benjamin
