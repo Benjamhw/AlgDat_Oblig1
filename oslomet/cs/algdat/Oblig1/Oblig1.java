@@ -9,6 +9,10 @@ import java.util.NoSuchElementException;
 
 
 public class Oblig1 {
+    public static void main(String[] args){
+        System.out.println("Hello world");
+    }
+
     private Oblig1() {
     }
 
@@ -20,7 +24,18 @@ public class Oblig1 {
     //Edvard
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        throw new NotImplementedException();
+        int tempValue = 0;
+        int max = 0;
+        for(int i=0; i<a.length; i++){
+            if(a[i] > a[i++]){
+                max = a[i];
+                tempValue = a[i++];
+                a[i++] = a[i];
+                a[i] = a[i++];
+            }
+        }
+        System.out.println(a);
+        return max;
     }
 
     public static int ombyttinger(int[] a) {
