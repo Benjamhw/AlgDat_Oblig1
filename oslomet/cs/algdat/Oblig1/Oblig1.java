@@ -9,33 +9,31 @@ import java.util.NoSuchElementException;
 
 
 public class Oblig1 {
-    public static void main(String[] args){
-        System.out.println("Hello world");
-    }
 
     private Oblig1() {
     }
 
     //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
     public static void main(String[] args){
-
+        System.out.println("gogoer");
     }
 
     //Edvard
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        int tempValue = 0;
-        int max = 0;
-        for(int i=0; i<a.length; i++){
-            if(a[i] > a[i++]){
-                max = a[i];
-                tempValue = a[i++];
-                a[i++] = a[i];
-                a[i] = a[i++];
+        if(a.length == 0){
+            throw new NoSuchElementException("Tabellen er tom!");
+        }
+        int tempValue;
+        for(int i=0; i<a.length -1; i++){
+            if(a[i] > a[i+1]){
+               tempValue = a[i];
+               a[i] = a[i+1];
+               a[i+1] = tempValue;
             }
         }
-        System.out.println(a);
-        return max;
+        System.out.println(Arrays.toString(a));
+        return a[a.length-1];
     }
 
     public static int ombyttinger(int[] a) {
