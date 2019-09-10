@@ -136,33 +136,13 @@ public class Oblig1 {
     public static boolean inneholdt(String a, String b) {
 
         char [] aArray = a.toCharArray();
-        char [] bArray= b.toCharArray();
-        char bokstavSjekk;
-        int aBokstavCnt;
-        int bBokstavCnt;
+        char [] bArray = b.toCharArray();
 
-        System.out.println(Arrays.toString(aArray) + "    \n" + Arrays.toString(bArray));
+        // Må finne ut hvor mange det er av hvert element i aArray
 
-        for(int i = 0; i < aArray.length; i++){
-            bokstavSjekk = aArray[i];
-            aBokstavCnt = 0;
-            bBokstavCnt = 0;
-            for( int j = 0; j < aArray.length;j++){
-                if(bokstavSjekk==aArray[j]){
-                    aBokstavCnt++;
-                }
-            }
-            for(int j = 0; j < bArray.length;j++){
-                if(bokstavSjekk==bArray[j]){
-                    bBokstavCnt++;
-                }
+        //Må sjekke om bArray har minst like mange av hvert element
 
-            }
-            if(aBokstavCnt>bBokstavCnt){
-                return false;
-            }
 
-        }
 
 
         return true;
