@@ -16,7 +16,8 @@ public class Oblig1 {
     //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
     public static void main(String[] args){
        System.out.println("gogoer");
-        System.out.println(inneholdt("","BARBARABBAAROKOKO"));
+        System.out.println(inneholdt("ØLØL","BARBARABBAAROKOKO"));
+
     }
 
     //Edvard
@@ -130,22 +131,41 @@ public class Oblig1 {
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
 
-        throw new NotImplementedException();
+        System.out.print((int)bokstav);
+        return bokstav;
+
     }
 
     public static boolean inneholdt(String a, String b) {
 
         char [] aArray = a.toCharArray();
         char [] bArray = b.toCharArray();
+        int equalNumbers = 0;
+
+        for(int i = 0; i < aArray.length; i++){
+
+            for(int j = 0; j < bArray.length; j++){
+                if(aArray[i]==bArray[j]){
+                    equalNumbers++;
+                    //Midlertidig løsning
+                    bArray[j]='@';
+                    break;
+                }
+
+            }
+        }
+        if(equalNumbers==aArray.length){
+            return true;
+        }else{
+            return false;
+        }
 
         // Må finne ut hvor mange det er av hvert element i aArray
 
         //Må sjekke om bArray har minst like mange av hvert element
 
+        //Returner false om ikke.
 
-
-
-        return true;
     }
 
 }  // Oblig1
