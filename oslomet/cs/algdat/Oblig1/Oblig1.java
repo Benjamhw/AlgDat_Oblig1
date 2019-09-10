@@ -104,39 +104,34 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        //Lager chararray av strengene s og t
+        //Lager char[] av strengene s og t
         char[] schars = s.toCharArray();
         char[] tchars = t.toCharArray();
+        char[] rchars = new char[s.length() + t.length()];
 
-
-        char[] rchars = new char[schars.length + tchars.length];
-
-
-
-        int iterasjoner;
-
-        if(schars.length > tchars.length) {
-            iterasjoner = schars.length;
-        } else {
-            iterasjoner = tchars.length;
+        int lengdeStoerste = 0;
+        int lengdeMinste = 0;
+        char[] stoersteArray = new char[0];
+        if(s.length() > t.length()) {       //hvis s lengre enn t
+            lengdeStoerste = s.length();
+            lengdeMinste = t.length();
+            stoersteArray = schars;
+        } else {                            //hvis t lengre enn s
+            lengdeStoerste = t.length();
+            lengdeMinste = s.length();
+            stoersteArray = tchars;
         }
 
-        for(int i = 0; i < iterasjoner; i++) {
-            if (i >= schars.length) {
-                rchars[i + schars.length] += tchars[i];
-            }
-            if (i >= tchars.length) {
-                rchars[i + tchars.length] += schars[i];
+        for(int i = 0; i < lengdeStoerste; i++) {
+            if(lengdeMinste > i) {
+                rchars[i * 2] = schars[i];
+                rchars[i * 2 + 1] = tchars[i];
             } else {
-
-                rchars[i * 2] += schars[i];
-                rchars[i * 2 + 1] += tchars[i];
+                rchars[i + lengdeMinste] = stoersteArray[i];
             }
         }
-
-
-        return Arrays.toString(rchars);
-    }
+        return String.valueOf(rchars);
+    } //flett
 
     //Aslak
     /// 7b)
