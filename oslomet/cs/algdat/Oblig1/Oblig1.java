@@ -16,7 +16,7 @@ public class Oblig1 {
     //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
     public static void main(String[] args){
        System.out.println("gogoer");
-        System.out.println(inneholdt("ØLØL","BARBARABBAAROKOKO"));
+        System.out.println(inneholdt("","BARBARABBAAROKOKO"));
 
     }
 
@@ -131,8 +131,73 @@ public class Oblig1 {
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
 
-        System.out.print((int)bokstav);
-        return bokstav;
+        if(bokstav == 'A'){
+            return 2;
+        }
+        if(bokstav == 'B'){
+            return 3;
+        }
+        if(bokstav == 'C'){
+            return 5;
+        }
+        if(bokstav == 'D'){
+            return 7;
+        }
+        if(bokstav == 'E'){
+            return 11;
+        }
+        if(bokstav == 'F'){
+            return 13;
+        }
+        if(bokstav == 'G'){
+            return 17;
+        }
+        if(bokstav == 'H'){
+            return 19;
+        }if(bokstav == 'I'){
+            return 23;
+        }if(bokstav == 'J'){
+            return 29;
+        }if(bokstav == 'K'){
+            return 31;
+        }if(bokstav == 'L'){
+            return 37;
+        }if(bokstav == 'M'){
+            return 41;
+        }if(bokstav == 'N'){
+            return 43;
+        }if(bokstav == 'O'){
+            return 47;
+        }if(bokstav == 'P'){
+            return 53;
+        }if(bokstav == 'Q'){
+            return 59;
+        }if(bokstav == 'R'){
+            return 61;
+        }if(bokstav == 'S'){
+            return 67;
+        }if(bokstav == 'T'){
+            return 71;
+        }if(bokstav == 'U'){
+            return 73;
+        }if(bokstav == 'V'){
+            return 79;
+        }if(bokstav == 'W'){
+            return 83;
+        }if(bokstav == 'G'){
+            return 89;
+        }if(bokstav == 'Y'){
+            return 97;
+        }if(bokstav == 'Z'){
+            return 101;
+        }if(bokstav == 'Æ'){
+            return 103;
+        }if(bokstav == 'Ø'){
+            return 107;
+        }if(bokstav == 'Å'){
+            return 109;
+        }
+        return 1;
 
     }
 
@@ -140,25 +205,30 @@ public class Oblig1 {
 
         char [] aArray = a.toCharArray();
         char [] bArray = b.toCharArray();
-        int equalNumbers = 0;
+        long aSum = 1;
+        long bSum = 1;
+        if(aArray.length>bArray.length){
+            return  false;
+        }
 
         for(int i = 0; i < aArray.length; i++){
-
-            for(int j = 0; j < bArray.length; j++){
-                if(aArray[i]==bArray[j]){
-                    equalNumbers++;
-                    //Midlertidig løsning
-                    bArray[j]='@';
-                    break;
-                }
-
-            }
+            aSum= aSum * bokstavNr(aArray[i]);
         }
-        if(equalNumbers==aArray.length){
+
+        for(int i = 0; i < bArray.length; i++){
+            bSum= bSum * bokstavNr(bArray[i]);
+        }
+
+        if(bSum%aSum==0){
             return true;
-        }else{
+        }
+        else{
             return false;
         }
+
+
+
+
 
         // Må finne ut hvor mange det er av hvert element i aArray
 
