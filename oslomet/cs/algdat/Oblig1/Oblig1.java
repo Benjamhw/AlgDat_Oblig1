@@ -104,7 +104,38 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new NotImplementedException();
+        //Lager chararray av strengene s og t
+        char[] schars = s.toCharArray();
+        char[] tchars = t.toCharArray();
+
+
+        char[] rchars = new char[schars.length + tchars.length];
+
+
+
+        int iterasjoner;
+
+        if(schars.length > tchars.length) {
+            iterasjoner = schars.length;
+        } else {
+            iterasjoner = tchars.length;
+        }
+
+        for(int i = 0; i < iterasjoner; i++) {
+            if (i >= schars.length) {
+                rchars[i + schars.length] += tchars[i];
+            }
+            if (i >= tchars.length) {
+                rchars[i + tchars.length] += schars[i];
+            } else {
+
+                rchars[i * 2] += schars[i];
+                rchars[i * 2 + 1] += tchars[i];
+            }
+        }
+
+
+        return Arrays.toString(rchars);
     }
 
     //Aslak
