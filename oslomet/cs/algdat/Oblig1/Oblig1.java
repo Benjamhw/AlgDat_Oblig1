@@ -15,7 +15,8 @@ public class Oblig1 {
 
     //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
     public static void main(String[] args){
-        System.out.println("gogoer");
+       System.out.println("gogoer");
+        System.out.println(inneholdt("","BARBARABBAAROKOKO"));
     }
 
     //Edvard
@@ -128,11 +129,43 @@ public class Oblig1 {
     //Jacob
     ///// Oppgave 10 //////////////////////////////////////
     public static int bokstavNr(char bokstav) {
+
         throw new NotImplementedException();
     }
 
     public static boolean inneholdt(String a, String b) {
-        throw new NotImplementedException();
+
+        char [] aArray = a.toCharArray();
+        char [] bArray= b.toCharArray();
+        char bokstavSjekk;
+        int aBokstavCnt;
+        int bBokstavCnt;
+
+        System.out.println(Arrays.toString(aArray) + "    \n" + Arrays.toString(bArray));
+
+        for(int i = 0; i < aArray.length; i++){
+            bokstavSjekk = aArray[i];
+            aBokstavCnt = 0;
+            bBokstavCnt = 0;
+            for( int j = 0; j < aArray.length;j++){
+                if(bokstavSjekk==aArray[j]){
+                    aBokstavCnt++;
+                }
+            }
+            for(int j = 0; j < bArray.length;j++){
+                if(bokstavSjekk==bArray[j]){
+                    bBokstavCnt++;
+                }
+
+            }
+            if(aBokstavCnt>bBokstavCnt){
+                return false;
+            }
+
+        }
+
+
+        return true;
     }
 
 }  // Oblig1
