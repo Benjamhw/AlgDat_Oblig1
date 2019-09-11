@@ -12,7 +12,8 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void maks() {
-        assertEquals(true, false, "Implementer maks og denne testen");
+        int[] testTabell = {6,9,12,1,3,36,7,-1};
+        System.out.println(Oblig1.maks(testTabell));
     }
 
     @org.junit.jupiter.api.Test
