@@ -32,14 +32,22 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void delsortering() {
-        int[] a = {4,1,-7,2,-3};
-        //assertEquals(true, false, "Implementer delsortering og denne testen");
+        int[] a = {3,5,2,6,7,8,1,4,9};
+        int[] expected = {1,3,5,7,9,2,4,6,8};
         Oblig1.delsortering(a);
+        assertEquals(Arrays.toString(expected), Arrays.toString(a), "Implementer delsortering og denne testen");
+
+        System.out.println(Arrays.toString(a));
     }
 
     @org.junit.jupiter.api.Test
     void rotasjon() {
-        assertEquals(true, false, "Implementer rotasjon og denne testen");
+
+        char[] a = {'A','B','C','D','E'};
+        char[] a0 = {'D','E','A','B','C'};
+        Oblig1.rotasjon(a,2);
+
+        assertEquals(Arrays.toString(a0), Arrays.toString(a), "Implementer rotasjon og denne testen");
     }
 
     @org.junit.jupiter.api.Test

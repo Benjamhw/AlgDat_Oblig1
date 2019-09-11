@@ -4,8 +4,8 @@ package cs.algdat.Oblig1;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.NoSuchElementException;
 
 
 public class Oblig1 {
@@ -41,14 +41,17 @@ public class Oblig1 {
 
     //Benjamin
     ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a) {
+    public static void delsortering_ineffektiv(int[] a) {
+        //Sjekker om listen er tom
         if(a.length < 1) return;
+
+        //Oppretter midlertidige lister for oddetall og partall
         int[] oddetall = new int[a.length];
-        int[] partall = {};
+        int[] partall = new int[a.length];
+
+        //Startverdi og index for minste tall
         int min = a[0];
         int min_index = 0;
-        // {4,1,-7,2,-3};
-
 
         //Sorterer listen
         for(int i = 0; i < a.length - 1; i++){
@@ -64,27 +67,136 @@ public class Oblig1 {
 
             min = a[i + 1];
             min_index = i + 1;
-
-            System.out.println(Arrays.toString(a));
         }
 
+        //Midlertidige indexer
+        int partall_index = 0;
+        int oddetall_index = 0;
+
+        //Går gjennom begge listene og legger de i den originale
         for(int i = 0; i < a.length; i++){
             if(a[i]%2==0){
+                partall[partall_index] = a[i];
+                partall_index++;
+            }
+            else{
+                oddetall[oddetall_index] = a[i];
+                oddetall_index++;
+            }
+        }
+
+        //Lengden på partallslisten er i utgangspunktet den samme som originallisten
+        //Setter denne nå til å være siste index partall-listen fikk.
+        int oddetall_length = oddetall_index+1;
+        partall_index = 0;
+        oddetall_index = 0;
+
+        for(int i = 0; i < a.length; i++){
+            if(i < oddetall_length-1){
+                a[i] = oddetall[oddetall_index];
+                oddetall_index++;
+            }
+            else{
+                a[i] = partall[partall_index];
+                partall_index++;
             }
         }
 
     }
 
+    private static int partition(int[] a, int left, int right){
+        int pivot = a[right];
+        int index = (left-1);
+
+        for(int i = left; i < right; i++){
+            if(a[i] <= pivot){
+                index++;
+
+                int temp = a[index];
+                a[index] = a[i];
+                a[i] = temp;
+            }
+        }
+        int temp = a[index + 1];
+        a[index + 1] = a[right];
+        a[right] = temp;
+
+        return index+1;
+
+    }
+
+    private static void quickSort(int[] a, int left, int right){
+        if(left >= right) return;
+
+        int partisjon_index = partition(a,left,right);
+
+        quickSort(a,left,partisjon_index-1);
+        quickSort(a,partisjon_index+1, right);
+
+    }
+
+    public static void delsortering(int[] a) {
+        //Sorting the list first
+        quickSort(a,0,a.length-1);
+
+        int index = 0;
+
+        //all odd numbers goes to the left
+        for(int i = 0; i < a.length; i++){
+            if(a[i] % 2 != 0){
+                int temp = a[index];
+                a[index] = a[i];
+                a[i] = temp;
+
+                index++;
+
+            }
+        }
+        quickSort(a,index, a.length-1);
+    }
+
     //Benjamin
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new NotImplementedException();
+        if(a.length < 2) return;
+
+        //Making a hard copy of a
+        char[] tempA = new char[a.length];
+        for(int i = 0; i < a.length; i++){
+            tempA[i] = a[i];
+        }
+
+        //Rotating
+        for(int i = 0; i < tempA.length-1; i++){
+            a[i+1] = tempA[i];
+        }
+
+        //Last in array becomes first
+        a[0] = tempA[tempA.length-1];
+
     }
 
     //Benjamin
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
-        throw new NotImplementedException();
+        if(a.length < 2) return;
+
+        //Making a hard copy of a
+        char[] tempA = new char[a.length];
+        for(int i = 0; i < a.length; i++){
+            tempA[i] = a[i];
+        }
+
+        int newIndex;
+        for(int i = 0; i < a.length; i++){
+            newIndex = i+k;
+            if(newIndex < a.length){
+                a[newIndex] = tempA[i];
+            }
+            else{
+                a[newIndex-i] = tempA[i];
+            }
+        }
     }
 
     //Aslak
