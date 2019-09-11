@@ -13,17 +13,19 @@ class Oblig1UnitTest {
     @org.junit.jupiter.api.Test
     void maks() {
         int[] testTabell = {6,9,12,1,3,36,7,-1};
-        System.out.println(Oblig1.maks(testTabell));
+        assertEquals(36, Oblig1.maks(testTabell));
     }
 
     @org.junit.jupiter.api.Test
     void ombyttinger() {
-        assertEquals(true, false, "Implementer ombyttinger og denne testen");
+        int[] testTabell = {6,9,12,1,3,36,7,-1};
+        assertEquals(4, Oblig1.ombyttinger(testTabell));
     }
 
     @org.junit.jupiter.api.Test
     void antallUlikeSortert() {
-        assertEquals(true, false, "Implementer antallUlikeSortert og denne testen");
+        int[] testTabell = {1,1,1,2,2,3,3,4,7};
+        assertEquals(5, Oblig1.antallUlikeSortert(testTabell));
     }
 
     @org.junit.jupiter.api.Test

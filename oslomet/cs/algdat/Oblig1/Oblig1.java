@@ -6,6 +6,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 
 public class Oblig1 {
@@ -39,13 +40,39 @@ public class Oblig1 {
     }
 
     public static int ombyttinger(int[] a) {
-        throw new NotImplementedException();
+        int ombyttinger = 0;
+        int tempValue;
+        for(int i=0; i<a.length -1; i++){
+            if(a[i] > a[i+1]){
+                tempValue = a[i];
+                a[i] = a[i+1];
+                a[i+1] = tempValue;
+                ombyttinger++;
+            }
+        }
+        System.out.println(Arrays.toString(a));
+        return ombyttinger;
     }
 
     //Edvard
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new NotImplementedException();
+        if(a.length == 0){
+            return 0;
+        }
+        int antallUlike = 1;
+        int størsteTall = a[0];
+
+        for(int i = 0; i < a.length; i++){
+            if(a[i] < størsteTall){
+                throw new IllegalStateException("Tabellen er ikke sortert");
+            }
+            else if (a[i] > størsteTall){
+                størsteTall = a[i];
+                antallUlike++;
+            }
+        }
+        return antallUlike;
     }
 
     //Edvard
