@@ -349,7 +349,7 @@ public class Oblig1 {
             return 79;
         }if(bokstav == 'W'){
             return 83;
-        }if(bokstav == 'G'){
+        }if(bokstav == 'X'){
             return 89;
         }if(bokstav == 'Y'){
             return 97;

@@ -75,6 +75,6 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void inneholdt() {
-        assertEquals(true, false, "Implementer inneholdt og denne testen");
+        assertEquals(true, Oblig1.inneholdt("KORKKOKOGÅ","ÅGMKLSDKASDOKKRGOPKOKOKOKR"), "Implementer inneholdt og denne testen");
     }
 }
