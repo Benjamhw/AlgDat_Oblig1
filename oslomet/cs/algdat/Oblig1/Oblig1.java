@@ -2,6 +2,7 @@ package cs.algdat.Oblig1;
 
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 
+import com.sun.source.tree.LambdaExpressionTree;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.lang.reflect.Array;
@@ -17,7 +18,7 @@ public class Oblig1 {
     //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
     public static void main(String[] args){
        System.out.println("gogoer");
-        System.out.println(inneholdt("","BARBARABBAAROKOKO"));
+        System.out.println(inneholdt("OÅ","BARBARABBAAROKOKOÆÆÆÆÆÆÆÆÆÆÆÅ"));
 
     }
 
@@ -294,102 +295,100 @@ public class Oblig1 {
 
     //Jacob
     ///// Oppgave 10 //////////////////////////////////////
-    public static int bokstavNr(char bokstav) {
+   /*public static int bokstavNr(char bokstav) {
 
         if(bokstav == 'A'){
+            return 1;
+        }if(bokstav == 'B'){
             return 2;
-        }
-        if(bokstav == 'B'){
+        }if(bokstav == 'C'){
             return 3;
-        }
-        if(bokstav == 'C'){
-            return 5;
-        }
-        if(bokstav == 'D'){
-            return 7;
+        }if(bokstav == 'D'){
+            return 4;
         }
         if(bokstav == 'E'){
-            return 11;
+            return 5;
         }
         if(bokstav == 'F'){
-            return 13;
+            return 6;
         }
         if(bokstav == 'G'){
-            return 17;
+            return 7;
         }
         if(bokstav == 'H'){
-            return 19;
+            return 8;
         }if(bokstav == 'I'){
-            return 23;
+            return 9;
         }if(bokstav == 'J'){
-            return 29;
+            return 10;
         }if(bokstav == 'K'){
-            return 31;
+            return 11;
         }if(bokstav == 'L'){
-            return 37;
+            return 12;
         }if(bokstav == 'M'){
-            return 41;
+            return 13;
         }if(bokstav == 'N'){
-            return 43;
+            return 14;
         }if(bokstav == 'O'){
-            return 47;
+            return 15;
         }if(bokstav == 'P'){
-            return 53;
+            return 16;
         }if(bokstav == 'Q'){
-            return 59;
+            return 17;
         }if(bokstav == 'R'){
-            return 61;
+            return 18;
         }if(bokstav == 'S'){
-            return 67;
+            return 19;
         }if(bokstav == 'T'){
-            return 71;
+            return 20;
         }if(bokstav == 'U'){
-            return 73;
+            return 21;
         }if(bokstav == 'V'){
-            return 79;
+            return 22;
         }if(bokstav == 'W'){
-            return 83;
+            return 23;
         }if(bokstav == 'X'){
-            return 89;
+            return 24;
         }if(bokstav == 'Y'){
-            return 97;
+            return 25;
         }if(bokstav == 'Z'){
-            return 101;
+            return 26;
         }if(bokstav == 'Æ'){
-            return 103;
+            return 27;
         }if(bokstav == 'Ø'){
-            return 107;
+            return 28;
         }if(bokstav == 'Å'){
-            return 109;
+            return 29;
         }
-        return 1;
+        return 0;
 
-    }
+    }*/
 
     public static boolean inneholdt(String a, String b) {
 
         char [] aArray = a.toCharArray();
         char [] bArray = b.toCharArray();
-        long aSum = 1;
-        long bSum = 1;
-        if(aArray.length>bArray.length){
-            return  false;
-        }
+        int [] aCntLetters = new int[29];
+        int [] bCntLetters = new int[29];
+        int aSum=0;
+        int bSum=0;
+
 
         for(int i = 0; i < aArray.length; i++){
-            aSum= aSum * bokstavNr(aArray[i]);
+            leggTilBokstav(aArray[i],aCntLetters);
         }
 
         for(int i = 0; i < bArray.length; i++){
-            bSum= bSum * bokstavNr(bArray[i]);
+            leggTilBokstav(bArray[i],bCntLetters);
         }
 
-        if(bSum%aSum==0){
-            return true;
+        for(int i = 0; i < aCntLetters.length; i++){
+            if(aCntLetters[i]>bCntLetters[i]){
+                return false;
+            }
         }
-        else{
-            return false;
-        }
+        return true;
+
 
 
 
@@ -403,4 +402,99 @@ public class Oblig1 {
 
     }
 
-}  // Oblig1
+    public static void leggTilBokstav(char bokstav, int [] cntLetter){
+
+
+            if(bokstav == 'A'){
+                cntLetter[0]=cntLetter[0]+1;
+            }
+            if(bokstav == 'B'){
+                cntLetter[1]=cntLetter[1]+1;
+            }
+            if(bokstav == 'C'){
+                cntLetter[2]=cntLetter[2]+1;
+            }
+            if(bokstav == 'D'){
+                cntLetter[3]=cntLetter[3]+1;
+            }
+            if(bokstav == 'E'){
+                cntLetter[4]=cntLetter[4]+1;
+            }
+            if(bokstav == 'F'){
+                cntLetter[5]=cntLetter[5]+1;
+            }
+            if(bokstav == 'G'){
+                cntLetter[6]=cntLetter[6]+1;
+            }
+            if(bokstav == 'H'){
+                cntLetter[7]=cntLetter[7]+1;
+            }
+            if(bokstav == 'I'){
+                cntLetter[8]=cntLetter[8]+1;
+            }
+            if(bokstav == 'J'){
+                cntLetter[9]=cntLetter[9]+1;
+            }
+            if(bokstav == 'K'){
+                cntLetter[10]=cntLetter[10]+1;
+            }
+            if(bokstav == 'L'){
+                cntLetter[11]=cntLetter[11]+1;
+            }
+            if(bokstav == 'M'){
+                cntLetter[12]=cntLetter[12]+1;
+            }
+            if(bokstav == 'N'){
+                cntLetter[13]=cntLetter[13]+1;
+            }
+            if(bokstav == 'O'){
+                cntLetter[14]=cntLetter[14]+1;
+            }
+            if(bokstav == 'P'){
+                cntLetter[15]=cntLetter[15]+1;
+            }
+            if(bokstav == 'Q'){
+                cntLetter[16]=cntLetter[16]+1;
+            }
+            if(bokstav == 'R'){
+                cntLetter[17]=cntLetter[17]+1;
+            }
+            if(bokstav == 'S'){
+                cntLetter[18]=cntLetter[18]+1;
+            }
+            if(bokstav == 'T'){
+                cntLetter[19]=cntLetter[19]+1;
+            }
+            if(bokstav == 'U'){
+                cntLetter[20]=cntLetter[20]+1;
+            }
+            if(bokstav == 'V'){
+                cntLetter[21]=cntLetter[21]+1;
+            }
+            if(bokstav == 'W'){
+                cntLetter[22]=cntLetter[22]+1;
+            }
+            if(bokstav == 'X'){
+                cntLetter[23]=cntLetter[23]+1;
+            }
+            if(bokstav == 'Y'){
+                cntLetter[24]=cntLetter[24]+1;
+            }
+            if(bokstav == 'Z'){
+                cntLetter[25]=cntLetter[25]+1;
+            }
+            if(bokstav == 'Æ'){
+                cntLetter[26]=cntLetter[26]+1;
+            }
+            if(bokstav == 'Ø'){
+                cntLetter[27]=cntLetter[27]+1;
+            }
+            if(bokstav == 'Å'){
+                cntLetter[28]=cntLetter[28]+1;
+            }
+
+        }
+
+    }
+
+ // Oblig1
