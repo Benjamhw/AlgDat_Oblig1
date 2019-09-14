@@ -194,6 +194,7 @@ public class Oblig1 {
 
             }
         }
+        //Sorting all the even numbers
         quickSort(a,index, a.length-1);
     }
 
@@ -223,7 +224,12 @@ public class Oblig1 {
     public static void rotasjon(char[] a, int k) {
         if(a.length < 2) return;
 
-        //Making a hard copy of a
+        //k can be replaced with k % a.length
+        k = k%a.length;
+        //In Java, modulo returns the remainder, whereas we want the modulo, therefor (for negative numbers):
+        if(k<0) k+=a.length;
+
+        //Making a hard copy of 'a'
         char[] tempA = new char[a.length];
         for(int i = 0; i < a.length; i++){
             tempA[i] = a[i];
@@ -236,7 +242,7 @@ public class Oblig1 {
                 a[newIndex] = tempA[i];
             }
             else{
-                a[newIndex-i] = tempA[i];
+                a[newIndex-a.length] = tempA[i];
             }
         }
     }

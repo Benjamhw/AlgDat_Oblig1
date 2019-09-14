@@ -47,8 +47,8 @@ class Oblig1UnitTest {
     void rotasjon() {
 
         char[] a = {'A','B','C','D','E'};
-        char[] a0 = {'D','E','A','B','C'};
-        Oblig1.rotasjon(a,2);
+        char[] a0 = {'B','C','D','E','A'};
+        Oblig1.rotasjon(a,-1);
 
         assertEquals(Arrays.toString(a0), Arrays.toString(a), "Implementer rotasjon og denne testen");
     }
