@@ -290,77 +290,55 @@ public class Oblig1 {
     //Jacob
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new NotImplementedException();
+
+        if(a.length<3){
+            throw new NoSuchElementException("Inputarrayet kan ikke ha færre en tre elementer");
+        }
+        int minsteVerdi = Integer.MAX_VALUE;
+        int nestMinstVerdi = Integer.MAX_VALUE;
+        int tredjMinstVerdi = Integer.MAX_VALUE;
+
+        int minsteIndeks = 0;
+        int nestMinstIndex = 1;
+        int tredjMinstIndex = 2;
+
+        for(int i = 0; i < 3 ; i++){
+            
+        }
+
+
+        for(int i = 0; i < a.length; i++) {
+            if(a[i]<minsteVerdi){
+                tredjMinstIndex = nestMinstIndex;
+                tredjMinstVerdi = nestMinstVerdi;
+                nestMinstVerdi = minsteVerdi;
+                nestMinstIndex = minsteIndeks;
+                minsteIndeks = i;
+                minsteVerdi = a[i];
+            }
+            else if(a[i]<nestMinstVerdi){
+                tredjMinstIndex = nestMinstIndex;
+                tredjMinstVerdi = nestMinstVerdi;
+                nestMinstVerdi = a[i];
+                nestMinstIndex = i;     
+            }
+            else if(a[i] < tredjMinstVerdi){
+                tredjMinstIndex = i;
+                tredjMinstVerdi = a[i];
+            }
+
+        }
+        int [] minsteIndekser = {minsteIndeks, nestMinstIndex, tredjMinstIndex};
+        System.out.println(Arrays.toString(minsteIndekser));
+
+        return minsteIndekser;
     }
 
     //Jacob
     ///// Oppgave 10 //////////////////////////////////////
-   /*public static int bokstavNr(char bokstav) {
 
-        if(bokstav == 'A'){
-            return 1;
-        }if(bokstav == 'B'){
-            return 2;
-        }if(bokstav == 'C'){
-            return 3;
-        }if(bokstav == 'D'){
-            return 4;
-        }
-        if(bokstav == 'E'){
-            return 5;
-        }
-        if(bokstav == 'F'){
-            return 6;
-        }
-        if(bokstav == 'G'){
-            return 7;
-        }
-        if(bokstav == 'H'){
-            return 8;
-        }if(bokstav == 'I'){
-            return 9;
-        }if(bokstav == 'J'){
-            return 10;
-        }if(bokstav == 'K'){
-            return 11;
-        }if(bokstav == 'L'){
-            return 12;
-        }if(bokstav == 'M'){
-            return 13;
-        }if(bokstav == 'N'){
-            return 14;
-        }if(bokstav == 'O'){
-            return 15;
-        }if(bokstav == 'P'){
-            return 16;
-        }if(bokstav == 'Q'){
-            return 17;
-        }if(bokstav == 'R'){
-            return 18;
-        }if(bokstav == 'S'){
-            return 19;
-        }if(bokstav == 'T'){
-            return 20;
-        }if(bokstav == 'U'){
-            return 21;
-        }if(bokstav == 'V'){
-            return 22;
-        }if(bokstav == 'W'){
-            return 23;
-        }if(bokstav == 'X'){
-            return 24;
-        }if(bokstav == 'Y'){
-            return 25;
-        }if(bokstav == 'Z'){
-            return 26;
-        }if(bokstav == 'Æ'){
-            return 27;
-        }if(bokstav == 'Ø'){
-            return 28;
-        }if(bokstav == 'Å'){
-            return 29;
-        }
-        return 0;
+    //Hjelpemetode som ikke ble brukt.
+   /*public static int bokstavNr(char bokstav) {
 
     }*/
 
@@ -370,8 +348,6 @@ public class Oblig1 {
         char [] bArray = b.toCharArray();
         int [] aCntLetters = new int[29];
         int [] bCntLetters = new int[29];
-        int aSum=0;
-        int bSum=0;
 
 
         for(int i = 0; i < aArray.length; i++){
@@ -387,18 +363,8 @@ public class Oblig1 {
                 return false;
             }
         }
+
         return true;
-
-
-
-
-
-
-        // Må finne ut hvor mange det er av hvert element i aArray
-
-        //Må sjekke om bArray har minst like mange av hvert element
-
-        //Returner false om ikke.
 
     }
 
