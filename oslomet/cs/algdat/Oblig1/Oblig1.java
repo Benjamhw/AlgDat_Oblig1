@@ -252,6 +252,7 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
+
         //Lager char[] av strengene s og t
         char[] schars = s.toCharArray();
         char[] tchars = t.toCharArray();
@@ -284,7 +285,27 @@ public class Oblig1 {
     //Aslak
     /// 7b)
     public static String flett(String... s) {
-        throw new NotImplementedException();
+        if(s.length < 1) {
+            return "";
+        }
+        int lengsteString = s[0].length();
+
+        for(int i = 0; i < s.length; i++) {
+            if(s[i].length() > lengsteString) {
+                lengsteString = s[i].length();
+            }
+        }
+
+        String ut = "";
+
+        for(int i = 0; i < lengsteString; i++) {
+            for(int j = 0; j < s.length; j++) {
+                if(s[j].length() > i) {
+                    ut += s[j].charAt(i);
+                }
+            }
+        }
+        return ut;
     }
 
     //Aslak
