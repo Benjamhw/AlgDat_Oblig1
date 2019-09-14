@@ -46,7 +46,7 @@ class Oblig1UnitTest {
     @org.junit.jupiter.api.Test
     void rotasjon() {
 
-        char[] a = {'A','B','C','D','E'};
+        char[] a = {'A','B','C','D','E'};//
         char[] a0 = {'B','C','D','E','A'};
         Oblig1.rotasjon(a,-1);
 
