@@ -65,16 +65,33 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void tredjeMin() {
-        assertEquals(true, false, "Implementer tredjeMin og denne testen");
+        int [] test1 = {0,0,12,13,67,89,999,1,2,0};
+        int [] forventet1 = {0,1,9};
+        int [] test2 = {0,0,0};
+        int [] forventet2 = {0,1,2};
+        int [] test3 = {1,3,2};
+        int [] forventet3 = {0,2,1};
+        int [] test4 = {1000,90,12,13,67,1,89,999,69,420,0,99,123,2,3};
+        int [] forventet4 = {10,5,13};
+
+
+        assertEquals(Arrays.toString(forventet1), Arrays.toString(Oblig1.tredjeMin(test1)), "Test 1");
+        assertEquals(Arrays.toString(forventet2), Arrays.toString(Oblig1.tredjeMin(test2)), "Test 2");
+        assertEquals(Arrays.toString(forventet3), Arrays.toString(Oblig1.tredjeMin(test3)), "Test 3");
+        assertEquals(Arrays.toString(forventet4), Arrays.toString(Oblig1.tredjeMin(test4)), "Test 4");
     }
 
     @org.junit.jupiter.api.Test
     void bokstavNr() {
+
         assertEquals(true, false, "Implementer bokstavNr og denne testen");
     }
 
     @org.junit.jupiter.api.Test
     void inneholdt() {
-        assertEquals(true, false, "Implementer inneholdt og denne testen");
+        assertEquals(true, Oblig1.inneholdt("KORKKOKOGÅ","ÅGMKLSDKASDOKKRGOPKOKOKOKR"), "NR 1");
+        assertEquals(true, Oblig1.inneholdt("","ÅGMKLSDKASDOKKRGOPKOKOKOKR"), "NR 2");
+        assertEquals(false, Oblig1.inneholdt("KORKKOKOGÅPIZZA","ÅGMKLSDKASDOKKRGOPKOKOKOKR"), "NR 3");
+        assertEquals(true, Oblig1.inneholdt("Ø","ÅGMKLSDKASDOKKRGOPKOKOKOKRADSØ"), "NR 4");
     }
 }
