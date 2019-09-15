@@ -740,7 +740,7 @@ public class Oblig1Test {
         boolean flere1 = true;
 
         while (flere1) {
-            int[] c = Oblig1.tredjeMin(tabell);
+             int[] c = Oblig1.tredjeMin(tabell);
 
             if (tabell[c[0]] != 1 || tabell[c[1]] != 2 || tabell[c[2]] != 3) {
                 System.out.println("Oppgave 9: c) Feil for " + Arrays.toString(tabell));

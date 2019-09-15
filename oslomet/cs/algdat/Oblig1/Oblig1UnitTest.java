@@ -65,8 +65,8 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void tredjeMin() {
-        int [] test1 = {0,0,12,13,67,89,999,1,2,0};
-        int [] forventet1 = {0,1,9};
+        int [] test1 = {0,14,12,13,67,89,999,1,2,0};
+        int [] forventet1 = {0,9,7};
         int [] test2 = {0,0,0};
         int [] forventet2 = {0,1,2};
         int [] test3 = {1,3,2};

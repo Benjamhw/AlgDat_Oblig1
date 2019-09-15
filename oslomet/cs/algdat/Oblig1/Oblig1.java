@@ -17,8 +17,15 @@ public class Oblig1 {
 
     //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
     public static void main(String[] args){
-       System.out.println("gogoer");
-        System.out.println(inneholdt("OÅ","BARBARABBAAROKOKOÆÆÆÆÆÆÆÆÆÆÆÅ"));
+       /*System.out.println("gogoer");
+        System.out.println(inneholdt("OÅ","BARBARABBAAROKOKOÆÆÆÆÆÆÆÆÆÆÆÅ"));  */
+       int[] ting = {0,0,0};
+       //int[]nyting = {1,2,3,5,6,4};
+       System.out.println(Arrays.toString(indekssortering(ting)));
+      // System.out.println(Arrays.toString(indekssortering(nyting)));
+       System.out.println(Arrays.toString(tredjeMin(ting)));
+
+
 
     }
 
@@ -314,7 +321,7 @@ public class Oblig1 {
     public static int[] indekssortering(int[] a) {
         int[] indeksListe = new int[a.length];
         int[] acopy = Arrays.copyOf(a, a.length);
-
+       
         //Using selectionsort to sort acopy
         for(int i = 0; i < acopy.length; i++) {
             int indeks = i; //index of the smallest number
@@ -332,14 +339,29 @@ public class Oblig1 {
             acopy[indeks] = temp;
         }
         //Searching for the value from acopy (which is sorted ascendingly)
-        for(int i = 0; i < acopy.length; i++) {
+       /*for(int i = 0; i < acopy.length; i++) {
             int indeks = i;
             int verdi = acopy[i];
             for(int j = 0; j < a.length; j++) {
                 if(verdi == a[j]) {
                     indeksListe[i] = j;
+                    verdi = acopy[a.length-1] + 1;
+                    acopy[i] =  acopy[a.length-1] + 1;
+
                 }
             }
+        }      */
+       
+        for(int i = 0; i<a.length; i++){
+            int verdi = a[i];
+            for(int j = 0; j < acopy.length; j++){
+                if(verdi==acopy[j]){
+                    indeksListe[j] = i;
+                    acopy[j]=acopy[a.length-1] + 1;
+                    break;
+                }
+            }
+
         }
 
 
@@ -350,23 +372,28 @@ public class Oblig1 {
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
 
+       
+
         if(a.length<3){
             throw new NoSuchElementException("Inputarrayet kan ikke ha færre en tre elementer");
         }
-        int minsteVerdi = Integer.MAX_VALUE;
-        int nestMinstVerdi = Integer.MAX_VALUE;
-        int tredjMinstVerdi = Integer.MAX_VALUE;
-
-        int minsteIndeks = 0;
-        int nestMinstIndex = 1;
-        int tredjMinstIndex = 2;
-
-        for(int i = 0; i < 3 ; i++){
-            
-        }
+        int [] treFoerste = {a[0],a[1],2};
+        System.out.println(Arrays.toString(treFoerste));
+        int [] sortertFoerste = indekssortering(treFoerste);
 
 
-        for(int i = 0; i < a.length; i++) {
+
+        int minsteIndeks = sortertFoerste[0];
+        int nestMinstIndex = sortertFoerste[1];
+        int tredjMinstIndex = sortertFoerste[2];
+        System.out.println(minsteIndeks+" "+nestMinstIndex +" "+ tredjMinstIndex);
+        System.out.println(Arrays.toString(sortertFoerste));       
+
+        int minsteVerdi = a[minsteIndeks];
+        int nestMinstVerdi = a[nestMinstIndex];
+        int tredjMinstVerdi = a[tredjMinstIndex];
+
+        for(int i = 3; i < a.length; i++) {
             if(a[i]<minsteVerdi){
                 tredjMinstIndex = nestMinstIndex;
                 tredjMinstVerdi = nestMinstVerdi;
@@ -388,7 +415,6 @@ public class Oblig1 {
 
         }
         int [] minsteIndekser = {minsteIndeks, nestMinstIndex, tredjMinstIndex};
-        System.out.println(Arrays.toString(minsteIndekser));
 
         return minsteIndekser;
     }
