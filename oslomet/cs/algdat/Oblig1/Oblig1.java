@@ -253,7 +253,7 @@ public class Oblig1 {
     /// 7a)
     public static String flett(String s, String t) {
 
-        //Lager char[] av strengene s og t
+        //Making a char[] of s and t
         char[] schars = s.toCharArray();
         char[] tchars = t.toCharArray();
         char[] rchars = new char[s.length() + t.length()];
@@ -261,11 +261,12 @@ public class Oblig1 {
         int lengdeStoerste = 0;
         int lengdeMinste = 0;
         char[] stoersteArray = new char[0];
-        if(s.length() > t.length()) {       //hvis s lengre enn t
+        //deciding what parameters to use which is dependant on the strings we put in
+        if(s.length() > t.length()) {
             lengdeStoerste = s.length();
             lengdeMinste = t.length();
             stoersteArray = schars;
-        } else {                            //hvis t lengre enn s
+        } else {
             lengdeStoerste = t.length();
             lengdeMinste = s.length();
             stoersteArray = tchars;
@@ -311,7 +312,38 @@ public class Oblig1 {
     //Aslak
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new NotImplementedException();
+        int[] indeksListe = new int[a.length];
+        int[] acopy = Arrays.copyOf(a, a.length);
+
+        //Using selectionsort to sort acopy
+        for(int i = 0; i < acopy.length; i++) {
+            int indeks = i; //index of the smallest number
+            int minverdi = acopy[i]; // value of the smallest number
+
+            for(int j = i + 1; j < acopy.length; j++) {
+                if(acopy[j] < minverdi) {
+                    indeks = j; //new index for the smallest number
+                    minverdi = acopy[j]; // new smallest number
+                }
+            }
+            //switching acopy[i] and acopy[indeks]
+            int temp = acopy[i];
+            acopy[i] = acopy[indeks];
+            acopy[indeks] = temp;
+        }
+        //Searching for the value from acopy (which is sorted ascendingly)
+        for(int i = 0; i < acopy.length; i++) {
+            int indeks = i;
+            int verdi = acopy[i];
+            for(int j = 0; j < a.length; j++) {
+                if(verdi == a[j]) {
+                    indeksListe[i] = j;
+                }
+            }
+        }
+
+
+        return indeksListe;
     }
 
     //Jacob
