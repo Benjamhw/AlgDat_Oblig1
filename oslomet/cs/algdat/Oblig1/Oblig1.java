@@ -31,6 +31,18 @@ public class Oblig1 {
 
     //Edvard
     ///// Oppgave 1 //////////////////////////////////////
+    /*
+    Svar på spørsmålene til oppgave 1:
+    Det blir flest ombyttinger når det største tallet står fremst,
+    altså har indeks 0 og færrest ombyttinger (0) når det største tallet
+    står bakerst.
+
+    Mine testverdier gir et gjennomsnittlig antall ombyttinger på 6.4, men med mange nok
+    permutasjoner ville vi fått det harmoniske tallet Hn - 1 = log(n) -0.423
+    antall ombyttinger. Algoritmen er dermed like effektiv(eller ineffektiv) som
+    de andre maks-metodene vi har sett på
+
+     */
     public static int maks(int[] a) {
         if(a.length == 0){
             throw new NoSuchElementException("Tabellen er tom!");
@@ -43,7 +55,6 @@ public class Oblig1 {
                a[i+1] = tempValue;
             }
         }
-        System.out.println(Arrays.toString(a));
         return a[a.length-1];
     }
 
@@ -58,7 +69,6 @@ public class Oblig1 {
                 ombyttinger++;
             }
         }
-        System.out.println(Arrays.toString(a));
         return ombyttinger;
     }
 
@@ -86,7 +96,22 @@ public class Oblig1 {
     //Edvard
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new NotImplementedException();
+        int antallUlike = 0;
+        if(a.length == 0){
+            return antallUlike;
+        }
+        for(int i=0; i < a.length; i++){
+            boolean add = true;
+            for(int j=i-1; j >= 0; j--){
+                if(a[i] == a[j]){
+                    add = false;
+                }
+            }
+            if(add){
+                antallUlike++;
+            }
+        }
+        return antallUlike;
     }
 
     //Benjamin

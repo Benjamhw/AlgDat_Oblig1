@@ -12,8 +12,19 @@ class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
     void maks() {
-        int[] testTabell = {6,9,12,1,3,36,7,-1};
-        assertEquals(36, Oblig1.maks(testTabell));
+        int[] tabell1 = {6,9,12,1,3,36,7,-1};
+        int[] tabell2 = {12,3,-1,3,1,36,7,9};
+        int[] tabell3 = {9,7,36,1,3,-1,3,12};
+        int[] tabell4 = {3,-1,3,12,7,9,36,1};
+        int[] tabell5 = {12,9,7,1,36,3,-1,3};
+
+        int ombyttinger1 = Oblig1.ombyttinger(tabell1);
+        int ombyttinger2 = Oblig1.ombyttinger(tabell2);
+        int ombyttinger3 = Oblig1.ombyttinger(tabell3);
+        int ombyttinger4 = Oblig1.ombyttinger(tabell4);
+        int ombyttinger5 = Oblig1.ombyttinger(tabell5);
+
+        System.out.println((double)(ombyttinger1 + ombyttinger2 + ombyttinger3 + ombyttinger3 + ombyttinger4 + ombyttinger5) / 5);
     }
 
     @org.junit.jupiter.api.Test
