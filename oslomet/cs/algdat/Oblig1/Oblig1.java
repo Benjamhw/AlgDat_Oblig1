@@ -411,8 +411,9 @@ public class Oblig1 {
         if(a.length<3){
             throw new NoSuchElementException("Inputarrayet kan ikke ha færre en tre elementer");
         }
-        int [] treFoerste = {a[0],a[1],2};
-        System.out.println(Arrays.toString(treFoerste));
+
+        //Finner rekkefølgen på de tre første elementene i a
+        int [] treFoerste = {a[0],a[1],a[2]};
         int [] sortertFoerste = indekssortering(treFoerste);
 
 
@@ -420,13 +421,15 @@ public class Oblig1 {
         int minsteIndeks = sortertFoerste[0];
         int nestMinstIndex = sortertFoerste[1];
         int tredjMinstIndex = sortertFoerste[2];
-        System.out.println(minsteIndeks+" "+nestMinstIndex +" "+ tredjMinstIndex);
-        System.out.println(Arrays.toString(sortertFoerste));       
+        
+        
 
         int minsteVerdi = a[minsteIndeks];
         int nestMinstVerdi = a[nestMinstIndex];
         int tredjMinstVerdi = a[tredjMinstIndex];
 
+
+        //Looper gjennom og finner de tre minste verdierne.
         for(int i = 3; i < a.length; i++) {
             if(a[i]<minsteVerdi){
                 tredjMinstIndex = nestMinstIndex;
@@ -461,6 +464,7 @@ public class Oblig1 {
 
     }*/
 
+   
     public static boolean inneholdt(String a, String b) {
 
         char [] aArray = a.toCharArray();
@@ -468,7 +472,7 @@ public class Oblig1 {
         int [] aCntLetters = new int[29];
         int [] bCntLetters = new int[29];
 
-
+        //Finner ut hvor mange bokstaver av a og b har av hver type
         for(int i = 0; i < aArray.length; i++){
             leggTilBokstav(aArray[i],aCntLetters);
         }
@@ -476,7 +480,7 @@ public class Oblig1 {
         for(int i = 0; i < bArray.length; i++){
             leggTilBokstav(bArray[i],bCntLetters);
         }
-
+        //Sjekker om a har flere av noen bokstaver enn b.
         for(int i = 0; i < aCntLetters.length; i++){
             if(aCntLetters[i]>bCntLetters[i]){
                 return false;
@@ -489,7 +493,7 @@ public class Oblig1 {
 
     public static void leggTilBokstav(char bokstav, int [] cntLetter){
 
-
+             //Legger til en i riktig plass i array ettersom hvilken bokstav som kommer inn. 
             if(bokstav == 'A'){
                 cntLetter[0]=cntLetter[0]+1;
             }
