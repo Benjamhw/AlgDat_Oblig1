@@ -1,5 +1,12 @@
 package cs.algdat.Oblig1;
 
+/*
+ * Edvard Tollefsrud, s331390
+ * Aslak Wold, s331378
+ * Benjamin Haug Weel, s331365
+ * Jacob Nicolai Hjellnes Tærud, s331389
+ */
+
 ////// Løsningsforslag Oblig 1 - 2019 ////////////////////////
 
 import com.sun.source.tree.LambdaExpressionTree;
@@ -290,9 +297,9 @@ public class Oblig1 {
         char[] tchars = t.toCharArray();
         char[] rchars = new char[s.length() + t.length()];
 
-        int lengdeStoerste = 0;
-        int lengdeMinste = 0;
-        char[] stoersteArray = new char[0];
+        int lengdeStoerste;
+        int lengdeMinste;
+        char[] stoersteArray;
         //deciding what parameters to use which is dependant on the strings we put in
         if(s.length() > t.length()) {
             lengdeStoerste = s.length();
@@ -339,6 +346,8 @@ public class Oblig1 {
             }
         }
         return ut;
+
+
     }
 
     //Aslak
@@ -375,7 +384,7 @@ public class Oblig1 {
 
                 }
             }
-        }      */
+        }*/
        
         for(int i = 0; i<a.length; i++){
             int verdi = a[i];
