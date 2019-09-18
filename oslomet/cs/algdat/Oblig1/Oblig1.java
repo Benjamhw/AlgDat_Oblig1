@@ -22,20 +22,6 @@ public class Oblig1 {
     private Oblig1() {
     }
 
-    //Midlertidig main metode for å teste, fordi testklassene ikke fungerer
-    public static void main(String[] args){
-       /*System.out.println("gogoer");
-        System.out.println(inneholdt("OÅ","BARBARABBAAROKOKOÆÆÆÆÆÆÆÆÆÆÆÅ"));  */
-       int[] ting = {0,0,0};
-       //int[]nyting = {1,2,3,5,6,4};
-       System.out.println(Arrays.toString(indekssortering(ting)));
-      // System.out.println(Arrays.toString(indekssortering(nyting)));
-       System.out.println(Arrays.toString(tredjeMin(ting)));
-
-
-
-    }
-
     //Edvard
     ///// Oppgave 1 //////////////////////////////////////
     /*
